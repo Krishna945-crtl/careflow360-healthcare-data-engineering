@@ -1,0 +1,35 @@
+version: 2
+sources:
+  - name: raw
+    database: CAREFLOW_DB
+    schema: RAW
+    tables:
+      - name: appointments
+      - name: encounters
+models:
+  - name: stg_appointments
+    description: Latest record per appointment source key
+    columns:
+      - name: appointment_id
+        tests: [not_null, unique]
+      - name: patient_id
+        tests: [not_null]
+      - name: status
+        tests:
+          - accepted_values:
+              values: ['scheduled','completed','cancelled','no_show']
+  - name: stg_encounters
+    columns:
+      - name: encounter_id
+        tests: [not_null, unique]
+      - name: appointment_id
+        tests: [not_null]
+  - name: fct_care_continuity
+    description: Auditable operational indicators; not a medical diagnosis
+    columns:
+      - name: appointment_id
+        tests: [not_null, unique]
+  - name: mart_clinic_performance
+    columns:
+      - name: clinic_id
+        tests: [not_null]

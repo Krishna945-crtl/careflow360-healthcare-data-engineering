@@ -1,0 +1,13 @@
+name: careflow360
+version: '1.0.0'
+config-version: 2
+profile: careflow360
+model-paths: [models]
+models:
+  careflow360:
+    staging:
+      +materialized: view
+      +schema: staging
+    marts:
+      +materialized: table
+      +schema: marts

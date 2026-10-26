@@ -1,0 +1,14 @@
+# Copy to ~/.dbt/profiles.yml and substitute environment variables.
+careflow360:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      authenticator: externalbrowser
+      role: "{{ env_var('SNOWFLAKE_ROLE') }}"
+      database: CAREFLOW_DB
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
+      schema: DBT_DEV
+      threads: 4

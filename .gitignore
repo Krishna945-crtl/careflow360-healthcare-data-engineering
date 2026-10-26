@@ -1,0 +1,52 @@
+__pycache__/
+.pytest_cache/
+.venv/
+*.py[cod]
+.env
+*.db
+*.sqlite
+*.sqlite3
+.DS_Store
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Credentials and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.p8
+*.key
+profiles.yml
+secrets/
+credentials.json
+
+# Local databases
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# dbt generated files
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+dbt/.user.yml
+
+# Airflow generated files
+airflow/logs/
+airflow/plugins/__pycache__/
+airflow/airflow.cfg
+airflow/airflow.db
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,10 @@
+services:
+  dashboard:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - careflow_data:/app/data
+    restart: unless-stopped
+volumes:
+  careflow_data:
